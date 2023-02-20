@@ -10,7 +10,7 @@ name: CI with Sonar Cloud
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ "main" ]
 
 jobs:
   quality-gates:
