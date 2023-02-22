@@ -48,9 +48,7 @@ jobs:
           cache: maven
       - name: Create env file
         run: |
-          echo "${{ secrets.ENV_FILE_IAM }}" > env.properties
-          echo "ls -la ."
-          ls -la .
+          echo "${{ secrets.ENV_FILE_IAM }}" > ./src/main/resources/env.properties
       - name: Build with Maven
         run: mvn compile
       - name: Package with maven
