@@ -8,11 +8,13 @@
 		<version>2.7.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.example</groupId>
 	<artifactId>Movie-App-IAM</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Movie-App-IAM</name>
 	<description>Serveur IAM de l'application Movie App</description>
+
 	<properties>
 		<java.version>17</java.version>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
@@ -21,6 +23,15 @@
 		<sonar.qualitygate.wait>true</sonar.qualitygate.wait>
 		<maven.test.skip>true</maven.test.skip>
 	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/moviedbteam/iam-test</url>
+		</repository>
+	</distributionManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -64,8 +75,6 @@
 			<artifactId>gson</artifactId>
 			<version>2.10.1</version>
 		</dependency>
-
-
 
 	</dependencies>
 

@@ -49,12 +49,19 @@ jobs:
       - name: Create env file
         run: |
           echo "${{ secrets.ENV_FILE_IAM }}" > ./src/main/resources/env.properties
-      - name: Build with Maven
-        run: mvn compile
-      - name: Package with maven
-        run: mvn package
-      - run: mkdir artifact && cp target/*.jar artifact
-      - uses: actions/upload-artifact@v3
-        with:
-          name: test-iam-V0
-          path: artifact
+
+############ GENERE L'ARTEFACT (JAR) ##################################
+#      - name: Build with Maven
+#        run: mvn compile
+#      - name: Package with maven
+#        run: mvn package
+#      - run: mkdir artifact && cp target/*.jar artifact
+#      - uses: actions/upload-artifact@v3
+#        with:
+#          name: test-iam-V0
+#          path: artifact
+
+      - name: Publish package
+        run: mvn --batch-mode deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
