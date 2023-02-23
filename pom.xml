@@ -10,7 +10,7 @@
 	</parent>
 
 	<groupId>com.example</groupId>
-	<artifactId>Movie-App-IAM</artifactId>
+	<artifactId>movie-app-iam</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Movie-App-IAM</name>
 	<description>Serveur IAM de l'application Movie App</description>
@@ -27,7 +27,7 @@
 	<distributionManagement>
 		<repository>
 			<id>github</id>
-			<name>GitHub Packages</name>
+			<name>moviedbteam</name>
 			<url>https://maven.pkg.github.com/moviedbteam/iam-test</url>
 		</repository>
 	</distributionManagement>
