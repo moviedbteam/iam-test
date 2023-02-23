@@ -60,9 +60,12 @@ jobs:
 #        run: mvn package
 #      - run: mkdir artifact && cp target/*.jar artifact
 #      - uses: actions/upload-artifact@v3
+#      - uses: actions/upload-artifact@v3
 #        with:
 #          name: test-iam-V0
 #          path: artifact
+      - name: Build with Maven
+        run: mvn clean install
 
       - name: Publish package
         run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
