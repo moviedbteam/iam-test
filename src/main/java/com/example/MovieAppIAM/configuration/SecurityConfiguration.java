@@ -37,8 +37,9 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        System.out.println("=============== FILTER CHAIN ===============");
         http.cors(); //filtre pour configurer CORS
-        http.authorizeRequests().antMatchers("/login").permitAll()
+        http.authorizeRequests().antMatchers("/login","/api/v1/jeudes/lancer").permitAll()
                 .anyRequest().authenticated();
         http.addFilter(new JWTAuthenticationFilter(authenticationManager(http.getSharedObject(AuthenticationConfiguration.class))));
         http.csrf().disable();
@@ -51,7 +52,7 @@ public class SecurityConfiguration {
     {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.applyPermitDefaultValues();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200", "https://develop--moviemgr.netlify.app"));
 //      configuration.setAllowedMethods(Arrays.asList("GET","POST"));
 //      configuration.setAllowedOrigins(Arrays.asList("*"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "OPTIONS", "DELETE", "PUT", "PATCH"));

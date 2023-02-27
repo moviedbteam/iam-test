@@ -70,20 +70,20 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         // Réponse renvoyée dans la requête
         response.getWriter();
-        response.addHeader("Authorization", monToken);
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.addHeader("Access-Control-Expose-Headers", "Authorization");
+//        response.addHeader("Authorization", monToken);
+//        response.setContentType("application/json");
+//        response.setCharacterEncoding("UTF-8");
+//        response.addHeader("Access-Control-Expose-Headers", "Authorization");
 
 
 //        Gson gson = new Gson();
 //        String springUserJson =gson.toJson(springUser);
 
         JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("jwt", monToken);
         jsonObject.addProperty("access", springUser.getAuthorities().toString());
         jsonObject.addProperty("id", springUser.getUsername());
 
-//        response.getWriter().write("{\"name\": \"" + springUser.getUsername() + "\", \"jwt\": \"" + monToken + "\"}");
         response.getWriter().print(jsonObject);
         response.getWriter().flush(); // commit la réponse
 
